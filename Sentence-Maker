@@ -1,0 +1,20 @@
+let adjective = "fierce";
+let noun = "dragon";
+let verb = "angry";
+let place = "mountain cave";
+let adjective2 = "fiery";
+let noun2 = "marshmallows";
+
+// Create the first story
+let firstStory = `Once upon a time, there was a(n) ${adjective} ${noun} who loved to eat ${noun2}. The ${noun} lived in a ${place} and had ${adjective2} nostrils that blew fire when it was ${verb}.`;
+
+// Log the first story
+console.log("First story: " + firstStory);
+
+// Reassign new values for the second story
+adjective = "gentle";
+noun = "unicorn";
+verb = "excited";
+place = "enchanted forest";
+adjective2 = "sparkling";
+noun2 = "rainbow cupcakes";
