@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Drum Machine</title>
+  </head>
+  <body>
+<div id="drum-machine">
+  <p id="display"></p>
+  <div id="pad-bank">
+    <div class="drum-pad" id="Sci-Fi-Whoosh">Q
+      <audio class="clip" id="Q" src="cinematic-designed-sci-fi-whoosh-transition-nexawave-228295.mp3"></audio>
+    </div>
+    <div class="drum-pad" id="Magic-Spell">W
+      <audio class="clip" id="W" src="elemental-magic-spell-impact-outgoing-228342.mp3"></audio>
+    </div>
+    <div class="drum-pad" id="Guitar-Loop">E
+      <audio class="clip" id="E" src="relaxing-guitar-loop-v5-245859.mp3"></audio>
+    </div>
+    <div class="drum-pad" id="Creepy-Logo">A
+      <audio class="clip" id="A" src="astral-creepy-dark-logo-254198.mp3"></audio>
+    </div>
+    <div class="drum-pad" id="Riser-Wildfire">S
+      <audio class="clip" id="S" src="riser-wildfire-285209.mp3"></audio>
+    </div>
+    <div class="drum-pad" id="Riser-Hit">D
+      <audio class="clip" id="D" src="riser-hit-sfx-001-289802.mp3"></audio>
+    </div>
+    <div class="drum-pad" id="Design-Elements">Z
+      <audio class="clip" id="Z" src="sound-design-elements-sfx-ps-022-302865.mp3"></audio>
+    </div>
+    <div class="drum-pad" id="Reliable-Safe">X
+      <audio class="clip" id="X" src="reliable-safe-327618.mp3"></audio>
+    </div>
+    <div class="drum-pad" id="Descent-Whoosh">C
+      <audio class="clip" id="C" src="descent-whoosh-long-cinematic-sound-effect-405921.mp3"></audio>
+    </div>
+  </div>
+</div>
+<script src="script.js">
+const soundNames = {
+  Q: "Sci-Fi Whoosh",
+  W: "Magic Spell Impact",
+  E: "Relaxing Guitar Loop",
+  A: "Creepy Dark Logo",
+  S: "Riser Wildfire",
+  D: "Riser Hit",
+  Z: "Design Elements",
+  X: "Reliable Safe",
+  C: "Descent Whoosh"
+};
+
+function playSound(key) {
+  const audio = document.getElementById(key);
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play();
+    document.getElementById("display").innerText = soundNames[key];
+  }
+}
+
+document.querySelectorAll(".drum-pad").forEach(pad => {
+  pad.addEventListener("click", () => {
+    const key = pad.innerText.trim();
+    playSound(key);
+  });
+});
+
+document.addEventListener("keydown", e => {
+  const key = e.key.toUpperCase();
+  if (soundNames.hasOwnProperty(key)) {
+    playSound(key);
+  }
+});
+</script>
+</body>
+</html>
